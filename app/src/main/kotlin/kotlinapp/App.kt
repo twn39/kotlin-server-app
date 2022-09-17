@@ -1,11 +1,9 @@
 package kotlinapp
 
 import io.javalin.Javalin
-import kotlinapp.model.User
+import io.javalin.core.validation.ValidationException
+import kotlinapp.controller.UserController
 import kotlinapp.plugin.ExposedPlugin
-import org.jetbrains.exposed.sql.insert
-import org.jetbrains.exposed.sql.transactions.transaction
-import java.time.LocalDateTime
 
 
 fun main() {
@@ -15,23 +13,15 @@ fun main() {
         config.registerPlugin(ExposedPlugin())
     }.start(7000)
 
-    app.get("/") { ctx ->
-        val current = LocalDateTime.now()
-
-        transaction {
-            User.insert {
-                it[username] = "curry"
-                it[password] = "1234556"
-                it[avatar] = ""
-                it[email] = "twn39@163.com"
-                it[createAt] = current
-                it[updatedAt] = current
-            }
-        }
+    app.exception(ValidationException::class.java) { err, ctx ->
         ctx.json(mapOf(
-            "code" to 0,
-            "data" to null,
-            "msg" to "ok"
+            "code" to 10011,
+            "data" to "",
+            "msg" to err.errors,
         ))
     }
+
+    app.get("/users", UserController::showAll)
+    app.post("/users", UserController::create)
+
 }

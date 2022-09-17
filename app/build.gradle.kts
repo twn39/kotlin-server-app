@@ -31,9 +31,14 @@ dependencies {
     implementation("org.jetbrains.exposed", "exposed-dao", "0.39.2")
     implementation("org.jetbrains.exposed", "exposed-jdbc", "0.39.2")
     implementation("org.jetbrains.exposed:exposed-java-time:0.39.2")
+    implementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310")
+    implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.13.3")
     implementation("com.squareup.okhttp3:okhttp:4.10.0")
     implementation("com.fasterxml.jackson.core:jackson-databind:2.13.3")
     implementation("com.h2database:h2:2.1.214")
+    implementation("org.springframework.security:spring-security-crypto:5.7.3")
+    implementation("commons-logging:commons-logging:1.2")
+    implementation("org.bouncycastle:bcpkix-jdk15on:1.70")
 
     // This dependency is used by the application.
     implementation("com.google.guava:guava:30.1.1-jre")

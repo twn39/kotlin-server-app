@@ -14,3 +14,4 @@ object User: Table("users") {
 
     override val primaryKey = PrimaryKey(id, name = "PK_User_ID") // name is optional here
 }
+
