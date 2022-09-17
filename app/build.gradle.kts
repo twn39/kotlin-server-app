@@ -39,6 +39,7 @@ dependencies {
     implementation("org.springframework.security:spring-security-crypto:5.7.3")
     implementation("commons-logging:commons-logging:1.2")
     implementation("org.bouncycastle:bcpkix-jdk15on:1.70")
+    implementation("io.lettuce:lettuce-core:6.2.0.RELEASE")
 
     // This dependency is used by the application.
     implementation("com.google.guava:guava:30.1.1-jre")

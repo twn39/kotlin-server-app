@@ -2,6 +2,7 @@ package kotlinapp.controller
 
 import io.javalin.http.Context
 import kotlinapp.model.User
+import kotlinapp.plugin.getRedisConnection
 import org.jetbrains.exposed.sql.insert
 import org.jetbrains.exposed.sql.selectAll
 import org.jetbrains.exposed.sql.transactions.transaction
