@@ -25,6 +25,7 @@ dependencies {
 
     // Use the Kotlin JDK 8 standard library.
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+    implementation("org.jetbrains.kotlin:kotlin-reflect:1.7.10")
     implementation("io.javalin:javalin:4.6.4")
     implementation("org.slf4j:slf4j-simple:1.7.31")
     implementation("org.jetbrains.exposed", "exposed-core", "0.39.2")

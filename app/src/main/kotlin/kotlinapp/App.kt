@@ -5,6 +5,7 @@ import io.javalin.core.validation.ValidationException
 import kotlinapp.controller.UserController
 import kotlinapp.plugin.ExposedPlugin
 import kotlinapp.plugin.LettucePlugin
+import kotlinapp.plugin.ReposPlugin
 
 
 fun main() {
@@ -13,6 +14,7 @@ fun main() {
         config.enableDevLogging()
         config.registerPlugin(ExposedPlugin())
         config.registerPlugin(LettucePlugin())
+        config.registerPlugin(ReposPlugin())
     }.start(7000)
 
     app.exception(ValidationException::class.java) { err, ctx ->
