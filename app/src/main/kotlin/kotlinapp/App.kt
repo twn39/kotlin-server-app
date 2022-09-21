@@ -3,9 +3,11 @@ package kotlinapp
 import io.javalin.Javalin
 import io.javalin.core.validation.ValidationException
 import kotlinapp.controller.UserController
+import kotlinapp.module.LettuceModule
+import kotlinapp.module.UserModule
 import kotlinapp.plugin.ExposedPlugin
-import kotlinapp.plugin.LettucePlugin
-import kotlinapp.plugin.ReposPlugin
+import org.kodein.di.DI
+import org.kodein.di.instance
 
 
 fun main() {
@@ -13,8 +15,6 @@ fun main() {
         config.enableCorsForAllOrigins()
         config.enableDevLogging()
         config.registerPlugin(ExposedPlugin())
-        config.registerPlugin(LettucePlugin())
-        config.registerPlugin(ReposPlugin())
     }.start(7000)
 
     app.exception(ValidationException::class.java) { err, ctx ->
@@ -25,6 +25,13 @@ fun main() {
         ))
     }
 
-    app.get("/users", UserController::showAll)
-    app.post("/users", UserController::create)
+    val kodein = DI {
+        import(UserModule.module)
+        import(LettuceModule.module)
+    }
+
+    val userCtrl: UserController by kodein.instance()
+
+    app.get("/users", userCtrl::showAll)
+    app.post("/users", userCtrl::create)
 }

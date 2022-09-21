@@ -2,7 +2,6 @@ package kotlinapp.controller
 
 import io.javalin.http.Context
 import kotlinapp.model.User
-import kotlinapp.plugin.getRepos
 import kotlinapp.repository.UserRepo
 import org.jetbrains.exposed.sql.insert
 import org.jetbrains.exposed.sql.transactions.transaction
@@ -17,9 +16,9 @@ data class CreateBodyParams(
     val password: String = "",
 )
 
-object UserController {
+class UserController(private val userRepo: UserRepo) {
+
     fun showAll(ctx: Context) {
-        val userRepo = getRepos(ctx, UserRepo::class.java)
         val users = userRepo.findAll()
         ctx.json(mapOf(
             "code" to 0,
