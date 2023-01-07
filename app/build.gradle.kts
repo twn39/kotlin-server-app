@@ -8,7 +8,7 @@
 
 plugins {
     // Apply the org.jetbrains.kotlin.jvm Plugin to add support for Kotlin.
-    id("org.jetbrains.kotlin.jvm") version "1.7.10"
+    id("org.jetbrains.kotlin.jvm") version "1.8.0"
 
     // Apply the application plugin to add support for building a CLI application in Java.
     application
@@ -26,12 +26,12 @@ dependencies {
     // Use the Kotlin JDK 8 standard library.
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     implementation("org.jetbrains.kotlin:kotlin-reflect:1.7.10")
-    implementation("io.javalin:javalin:4.6.4")
-    implementation("org.slf4j:slf4j-simple:1.7.31")
-    implementation("org.jetbrains.exposed", "exposed-core", "0.39.2")
-    implementation("org.jetbrains.exposed", "exposed-dao", "0.39.2")
-    implementation("org.jetbrains.exposed", "exposed-jdbc", "0.39.2")
-    implementation("org.jetbrains.exposed:exposed-java-time:0.39.2")
+    implementation("io.javalin:javalin:5.3.0")
+    implementation("org.slf4j:slf4j-simple:2.0.3")
+    implementation("org.jetbrains.exposed", "exposed-core", "0.40.1")
+    implementation("org.jetbrains.exposed", "exposed-dao", "0.40.1")
+    implementation("org.jetbrains.exposed", "exposed-jdbc", "0.40.1")
+    implementation("org.jetbrains.exposed:exposed-java-time:0.40.1")
     implementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.13.3")
     implementation("com.squareup.okhttp3:okhttp:4.10.0")
@@ -40,8 +40,8 @@ dependencies {
     implementation("org.springframework.security:spring-security-crypto:5.7.3")
     implementation("commons-logging:commons-logging:1.2")
     implementation("org.bouncycastle:bcpkix-jdk15on:1.70")
-    implementation("io.lettuce:lettuce-core:6.2.0.RELEASE")
-    implementation("org.kodein.di:kodein-di:7.12.0")
+    implementation("io.lettuce:lettuce-core:6.2.2.RELEASE")
+    implementation("org.kodein.di:kodein-di:7.17.0")
 
     // This dependency is used by the application.
     implementation("com.google.guava:guava:30.1.1-jre")

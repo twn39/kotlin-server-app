@@ -1,7 +1,7 @@
 package kotlinapp.plugin
 
 import io.javalin.Javalin
-import io.javalin.core.plugin.Plugin
+import io.javalin.plugin.Plugin
 import kotlinapp.model.User
 import org.jetbrains.exposed.sql.Database
 import org.jetbrains.exposed.sql.SchemaUtils

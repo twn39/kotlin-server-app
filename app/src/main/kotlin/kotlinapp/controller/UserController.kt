@@ -28,7 +28,7 @@ class UserController(private val userRepo: UserRepo) {
     }
 
     fun create(ctx: Context) {
-        val bodyParams = ctx.bodyValidator<CreateBodyParams>()
+        val bodyParams = ctx.bodyValidator(CreateBodyParams::class.java)
             .check({ it.username.isNotEmpty() && it.username.length < 40 }, "Username is required and max length is less than 40.")
             .check({ it.email.isNotEmpty() && it.email.matches(Regex("""^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*""")) }, "Email is invalid.")
             .check({ it.password.isNotEmpty() && it.password.length >= 8 && it.password.length <= 30 }, "Password is required and length between 8 and 30.")
